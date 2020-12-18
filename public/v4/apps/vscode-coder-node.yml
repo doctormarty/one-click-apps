@@ -16,6 +16,9 @@ services:
                 - FROM codercom/code-server:2.1697-vsc1.39.2
                 - '# Similar to the original file, except setting the user to root to prevent permission issues.'
                 - USER root
+                - RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+                - RUN sudo apt-get install -y nodejs
+                - RUN npm install -g yarn
 caproverOneClickApp:
     variables:
         - description: Password for accessing VS Code
